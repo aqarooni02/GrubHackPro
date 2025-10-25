@@ -13,12 +13,9 @@ A comprehensive toolkit for developing custom GRUB modules with graphics capabil
 
 ## 🎥 Demo
 
-See GrubHackPro in action! Watch the screencast to see how easy it is to create and run custom GRUB modules.
+See GrubHackPro in action! Watch the screencast to see the possibilites of creating and running custom GRUB modules.
 
-<video controls width="800">
-  <source src="demo.webm" type="video/webm">
-  Your browser does not support the video tag.
-</video>
+[PongDemo.webm](https://github.com/user-attachments/assets/45fcf62a-694b-4b36-b80f-b53400085334)
 
 *Demo showing pong running in GRUB!*
 
