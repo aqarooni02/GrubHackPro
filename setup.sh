@@ -123,10 +123,9 @@ cd ~/grub-dev
 
 # Clone GRUB if not exists
 if [[ ! -d "grub" ]]; then
-    print_status "Cloning GRUB repository..."
+    print_status "Cloning GRUB repository... (this may take a while)"
     git clone https://git.savannah.gnu.org/git/grub.git
     cd grub
-    git checkout grub-2.06
     print_success "GRUB cloned"
 else
     print_status "GRUB already exists, updating..."
