@@ -6,6 +6,11 @@ set -e
 
 echo "🚀 GrubHackPro Setup Script"
 echo "=============================="
+echo ""
+echo "⚠️  SAFETY NOTICE: This setup uses an isolated GRUB installation"
+echo "   that will NOT interfere with your system's GRUB bootloader."
+echo "   All GRUB files are installed in ~/grub-dev/grub-install/"
+echo ""
 
 # Colors for output
 RED='\033[0;31m'
@@ -137,25 +142,17 @@ fi
 print_status "Bootstrapping GRUB..."
 ./bootstrap
 
-# Configure GRUB
-print_status "Configuring GRUB..."
-./configure \
-    --target=x86_64 \
-    --with-platform=efi \
-    --prefix=/usr/local \
-    --disable-werror
-
 # Create build directory
 print_status "Creating build directory..."
 mkdir -p build-uefi
 cd build-uefi
 
-# Configure build
+# Configure build (using isolated prefix to avoid system conflicts)
 print_status "Configuring build..."
 ../configure \
     --target=x86_64 \
     --with-platform=efi \
-    --prefix=/usr/local \
+    --prefix=$HOME/grub-dev/grub-install \
     --disable-werror
 
 # Build GRUB
@@ -176,10 +173,10 @@ sudo mkfs.fat -F 32 virtgrub.img
 
 # Create EFI directory structure
 print_status "Creating EFI directory structure..."
-sudo mkdir -p /mnt/virtgrub
-sudo mount -o loop virtgrub.img /mnt/virtgrub
-sudo mkdir -p /mnt/virtgrub/EFI/BOOT
-sudo umount /mnt/virtgrub
+mkdir -p ~/grub-dev/mnt
+sudo mount -o loop virtgrub.img ~/grub-dev/mnt
+sudo mkdir -p ~/grub-dev/mnt/EFI/BOOT
+sudo umount ~/grub-dev/mnt
 
 # Create GRUB configuration
 print_status "Creating GRUB configuration..."
@@ -229,9 +226,9 @@ echo "Creating GRUB image..."
     mycustommod
 
 echo "Copying GRUB configuration..."
-sudo mount -o loop ../../virtgrub.img /mnt/virtgrub
-sudo cp ../../grub.cfg /mnt/virtgrub/EFI/BOOT/
-sudo umount /mnt/virtgrub
+sudo mount -o loop ../../virtgrub.img ~/grub-dev/mnt
+sudo cp ../../grub.cfg ~/grub-dev/mnt/EFI/BOOT/
+sudo umount ~/grub-dev/mnt
 
 echo "Build complete!"
 EOF
@@ -491,9 +488,9 @@ if [ $? -eq 0 ]; then
     mkdir -p virtgrub/EFI/BOOT/fonts
     
     # Copy font to virtual disk
-    sudo mount -o loop virtgrub.img /mnt/virtgrub
-    sudo cp $OUTPUT /mnt/virtgrub/EFI/BOOT/fonts/
-    sudo umount /mnt/virtgrub
+    sudo mount -o loop virtgrub.img ~/grub-dev/mnt
+    sudo cp $OUTPUT ~/grub-dev/mnt/EFI/BOOT/fonts/
+    sudo umount ~/grub-dev/mnt
     
     echo "Font copied to virtual disk"
 else

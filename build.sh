@@ -112,9 +112,9 @@ EOF
 fi
 
 # Mount virtual disk and copy configuration
-sudo mount -o loop ../../virtgrub.img /mnt/virtgrub
-sudo cp ../grub.cfg /mnt/virtgrub/EFI/BOOT/
-sudo umount /mnt/virtgrub
+sudo mount -o loop ../../virtgrub.img ~/grub-dev/mnt
+sudo cp ../grub.cfg ~/grub-dev/mnt/EFI/BOOT/
+sudo umount ~/grub-dev/mnt
 
 print_success "GRUB configuration copied"
 
@@ -122,10 +122,10 @@ print_success "GRUB configuration copied"
 print_status "Checking for custom fonts..."
 if [[ -f "unicode.pf2" ]]; then
     print_status "Found custom font, copying to virtual disk..."
-    sudo mount -o loop ../../virtgrub.img /mnt/virtgrub
-    sudo mkdir -p /mnt/virtgrub/EFI/BOOT/fonts
-    sudo cp unicode.pf2 /mnt/virtgrub/EFI/BOOT/fonts/
-    sudo umount /mnt/virtgrub
+    sudo mount -o loop ../../virtgrub.img ~/grub-dev/mnt
+    sudo mkdir -p ~/grub-dev/mnt/EFI/BOOT/fonts
+    sudo cp unicode.pf2 ~/grub-dev/mnt/EFI/BOOT/fonts/
+    sudo umount ~/grub-dev/mnt
     print_success "Custom font copied"
 else
     print_warning "No custom font found. Using default fonts."
