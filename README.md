@@ -11,6 +11,17 @@ A comprehensive toolkit for developing custom GRUB modules with graphics capabil
 - **Visual Demos**: Particle systems, animations, fractals
 - **Educational Projects**: Learn low-level graphics programming
 
+## 🎥 Demo
+
+See GrubHackPro in action! Watch the screencast to see how easy it is to create and run custom GRUB modules.
+
+<video controls width="800">
+  <source src="demo.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+*Demo showing the complete development workflow from setup to running custom GRUB modules*
+
 ## 🚀 Quick Start
 
 ```bash
