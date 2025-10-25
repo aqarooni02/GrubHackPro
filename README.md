@@ -20,7 +20,7 @@ See GrubHackPro in action! Watch the screencast to see how easy it is to create 
   Your browser does not support the video tag.
 </video>
 
-*Demo showing the complete development workflow from setup to running custom GRUB modules*
+*Demo showing pong running in GRUB!*
 
 ## 🚀 Quick Start
 
