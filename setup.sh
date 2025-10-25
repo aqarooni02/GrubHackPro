@@ -219,14 +219,15 @@ echo "Creating GRUB image..."
 ./grub-mkimage \
     -O x86_64-efi \
     -d grub-core \
-    -o ../../virtgrub/EFI/BOOT/BOOTX64.EFI \
+    -o ../../BOOTX64.EFI \
     -p /EFI/BOOT \
     boot linux normal configfile terminal gfxterm font ls help \
     efi_gop efi_uga fat part_gpt part_msdos search echo read halt \
     mycustommod
 
-echo "Copying GRUB configuration..."
+echo "Copying GRUB image to virtual disk..."
 sudo mount -o loop ../../virtgrub.img ~/grub-dev/mnt
+sudo cp ../../BOOTX64.EFI ~/grub-dev/mnt/EFI/BOOT/
 sudo cp ../../grub.cfg ~/grub-dev/mnt/EFI/BOOT/
 sudo umount ~/grub-dev/mnt
 

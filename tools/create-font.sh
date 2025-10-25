@@ -94,20 +94,20 @@ if [[ ! -f "virtgrub.img" ]]; then
     exit 0
 fi
 
-# Create fonts directory if it doesn't exist
-print_status "Setting up fonts directory..."
-sudo mkdir -p /mnt/virtgrub/EFI/BOOT/fonts
-
 # Mount virtual disk
 print_status "Mounting virtual disk..."
-sudo mount -o loop virtgrub.img /mnt/virtgrub
+sudo mount -o loop ~/grub-dev/virtgrub.img ~/grub-dev/mnt
+
+# Create fonts directory if it doesn't exist
+print_status "Setting up fonts directory..."
+sudo mkdir -p ~/grub-dev/mnt/EFI/BOOT/fonts
 
 # Copy font to virtual disk
 print_status "Copying font to virtual disk..."
-sudo cp $OUTPUT /mnt/virtgrub/EFI/BOOT/fonts/
+sudo cp $OUTPUT ~/grub-dev/mnt/EFI/BOOT/fonts/
 
 # Unmount
-sudo umount /mnt/virtgrub
+sudo umount ~/grub-dev/mnt
 
 print_success "Font copied to virtual disk"
 
