@@ -2,6 +2,8 @@
 
 Thank you for your interest in contributing to GrubHackPro! This document provides guidelines for contributing to the project.
 
+> **⚠️ Beta Testing**: This repository is currently in beta and open for testing. We especially welcome feedback on the setup process, build scripts, and overall development experience. Your testing and feedback will help us improve the toolkit!
+
 ## 🚀 Getting Started
 
 1. **Fork the repository** on GitHub

@@ -2,6 +2,8 @@
 
 A comprehensive toolkit for developing custom GRUB modules with graphics capabilities, interactive games, and system utilities.
 
+> **⚠️ Beta Status**: This repository is currently open for testing and feedback. The toolkit hasn't been fully tested end-to-end and may require additional research and debugging. We welcome issues, contributions, and feedback to help improve the development experience!
+
 ## 🎮 What You Can Build
 
 - **Interactive Games**: Pong, Snake, Breakout, Space Invaders
