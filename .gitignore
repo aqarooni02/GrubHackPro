@@ -1,0 +1,67 @@
+# Build artifacts
+*.o
+*.elf
+*.bin
+*.img
+*.iso
+build/
+dist/
+target/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.cache
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# QEMU and emulation files
+*.qcow2
+*.vmdk
+*.vdi
+qemu-*
+
+# GRUB specific
+grub.cfg.bak
+grub-mkconfig.log
+
+# Development tools
+compile_commands.json
+.clangd/
+
+# Backup files
+*.bak
+*.backup
+*.orig
+
+# Test outputs
+test-results/
+coverage/
+
+# Package files
+*.tar.gz
+*.zip
+*.deb
+*.rpm
+
+# Local configuration
+config.local
+.env
+.env.local
